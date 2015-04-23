@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><permissions>
+	<allow action="update" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Conversation" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="read" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Conversation" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="create" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Conversation" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="remove" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Conversation" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="describe" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Conversation" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="read" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Person" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="create" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Person" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="update" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Person" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="remove" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Person" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="describe" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Person" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="read" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Message" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="create" groupName="authenticated" groupID="0C1F19DCC1E34753B547CE12E278E61F" resource="Model.Message" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="update" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Message" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="remove" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Message" temporaryForcePermissions="false" type="dataClass"/>
+	<allow action="describe" groupName="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218" resource="Model.Message" temporaryForcePermissions="false" type="dataClass"/>
+</permissions>

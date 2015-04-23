@@ -1,0 +1,431 @@
+{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Person": {
+				"panelColor": "#D88CFF",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 627,
+						"Y": 433
+					}
+				}
+			},
+			"Conversation": {
+				"panelColor": "#D88CFF",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 333,
+						"Y": 25
+					}
+				}
+			},
+			"Message": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 58,
+						"Y": 329
+					}
+				}
+			},
+			"Utils": {
+				"panelColor": "#D88CFF",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 930,
+						"Y": 17
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
+			"relationCurve": {
+				"run": true,
+				"mode": 1
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "Conversation",
+			"className": "Conversation",
+			"collectionName": "Conversations",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "p1",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Person",
+					"path": "Person"
+				},
+				{
+					"name": "p2",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Person",
+					"path": "Person"
+				},
+				{
+					"name": "messages",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "Messages",
+					"reversePath": true,
+					"path": "conversation"
+				},
+				{
+					"name": "last_message_date",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				}
+			],
+			"events": [
+				{
+					"kind": "validate",
+					"from": "$mainModel.Conversation.events.validate"
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.Conversation.events.validate"
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.Conversation.events.validate",
+					"userDefined": true
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Conversation.events.restrict"
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Conversation.events.restrict"
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Conversation.events.restrict",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "get",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Conversation.get",
+					"userDefined": true
+				},
+				{
+					"name": "getAll",
+					"applyTo": "dataClass",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Conversation.getAll",
+					"userDefined": true
+				},
+				{
+					"name": "getOne",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.Conversation.getOne",
+					"userDefined": true
+				},
+				{
+					"name": "getPreview",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Conversation.entityMethods.getPreview",
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "Message",
+			"className": "Message",
+			"collectionName": "Messages",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "text",
+					"kind": "storage",
+					"scope": "public",
+					"not_null": true,
+					"type": "string",
+					"multiLine": true
+				},
+				{
+					"name": "date",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "conversation",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Conversation",
+					"path": "Conversation"
+				},
+				{
+					"name": "sender",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Person",
+					"path": "Person"
+				},
+				{
+					"name": "read_status",
+					"kind": "storage",
+					"scope": "public",
+					"type": "object"
+				}
+			],
+			"events": [
+				{
+					"kind": "save",
+					"from": "$mainModel.Message.events.save",
+					"userDefined": true
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.Message.events.init"
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.Message.events.init"
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.Message.events.init",
+					"userDefined": true
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.Message.events.validate"
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.Message.events.validate"
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.Message.events.validate",
+					"userDefined": true
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Message.events.restrict"
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Message.events.restrict"
+				},
+				{
+					"kind": "restrict",
+					"from": "$mainModel.Message.events.restrict",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "json",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Message.entityMethods.json",
+					"userDefined": true
+				},
+				{
+					"name": "send",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.Message.methods.send",
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "Person",
+			"className": "Person",
+			"collectionName": "People",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"autogenerate": true,
+					"type": "uuid",
+					"primKey": true
+				},
+				{
+					"name": "username",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"not_null": true,
+					"type": "string",
+					"indexKind": "btree",
+					"pattern": "^[A-Za-z0-9]+$"
+				},
+				{
+					"name": "password",
+					"kind": "calculated",
+					"scope": "public",
+					"type": "string",
+					"scriptKind": "javascript",
+					"onGet": [
+						{
+							"from": "$mainModel.Person.password.onGet",
+							"userDefined": true
+						}
+					],
+					"onSet": [
+						{
+							"from": "$mainModel.Person.password.onSet",
+							"userDefined": true
+						}
+					]
+				},
+				{
+					"name": "key",
+					"kind": "storage",
+					"scope": "publicOnServer",
+					"type": "string"
+				},
+				{
+					"name": "firstname",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "lastname",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "fullname",
+					"kind": "calculated",
+					"scope": "public",
+					"type": "string",
+					"scriptKind": "javascript",
+					"onGet": [
+						{
+							"from": "$mainModel.Person.fullname.onGet",
+							"userDefined": true
+						}
+					]
+				},
+				{
+					"name": "messages",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "Messages",
+					"reversePath": true,
+					"path": "sender"
+				},
+				{
+					"name": "avatar",
+					"kind": "storage",
+					"scope": "public",
+					"not_null": true,
+					"type": "string",
+					"pattern": "^(young|teen|old)\\-(male|female)$"
+				},
+				{
+					"name": "is_admin",
+					"kind": "storage",
+					"scope": "public",
+					"type": "bool"
+				}
+			],
+			"methods": [
+				{
+					"name": "getAll",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.Person.methods.getAll",
+					"userDefined": true
+				},
+				{
+					"name": "getCurrent",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.Person.methods.getCurrent",
+					"userDefined": true
+				},
+				{
+					"name": "isPasswordValid",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.Person.entityMethods.isPasswordValid",
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "Utils",
+			"className": "Utils",
+			"collectionName": "UtilsCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				}
+			],
+			"methods": [
+				{
+					"name": "signup",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.Utils.methods.signup",
+					"userDefined": true
+				}
+			]
+		}
+	]
+}

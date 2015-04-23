@@ -1,0 +1,8 @@
+{
+	"publisher": {
+		"password": {
+			"length": 100,
+			"period": 7200000
+		}
+	}
+}

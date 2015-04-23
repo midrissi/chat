@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><directory>
+	<group ID="01000000000000000000000000000000" name="Admin"/>
+	<group ID="19C9DCA9381D4D799177D66DFCF7C218" name="administrator"/>
+	<group ID="0C1F19DCC1E34753B547CE12E278E61F" name="authenticated">
+		<include group="administrator" groupID="19C9DCA9381D4D799177D66DFCF7C218"/>
+	</group>
+</directory>
