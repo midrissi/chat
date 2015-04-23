@@ -32,6 +32,10 @@
 		return this.getAll();
 	};
 
+	events.remove = function () {
+		return this.messages.remove();
+	};
+
 	m.get = function(p1, p2) {
 		if (!p1 || !p2) {
 			return null;
@@ -109,6 +113,10 @@
 	};
 
 	m.getAll = function () {
+		if(!sessionStorage.ID && currentSession().belongsTo('administrator')){
+			return this.all();
+		}
+
 		return this.query('p1.ID == :1 or p2.ID == :1', sessionStorage.ID);
 	};
 

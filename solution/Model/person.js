@@ -5,6 +5,7 @@
 	var formatter = require("formatting");
 	var eMethods = m.entityMethods;
 	var methods = m.methods;
+	var events = m.events;
 
 	m.password = {
 		onGet: function() {
@@ -34,6 +35,10 @@
 
 			return str;
 		}
+	};
+
+	events.remove = function () {
+		ds.Conversation.query('p1.ID == :1 or p2.ID == :1', this.getKey()).remove();
 	};
 
 	eMethods.isPasswordValid = function(password) {

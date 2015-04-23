@@ -38,14 +38,14 @@
 	};
 
 	events.save = function () {
-		this.sender = sessionStorage.ID;
-		
-		if(this.conversation){
-			this.conversation.last_message_date = new Date();
-			this.conversation.save();
-		}
-
 		if (this.isNew()) {
+			if(this.conversation){
+				this.conversation.last_message_date = new Date();
+				this.conversation.save();
+			}
+
+			this.sender = sessionStorage.ID;
+			
 			publisher.publish({
 				event: 'chat:new',
 				data: this.json()
