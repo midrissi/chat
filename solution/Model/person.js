@@ -37,7 +37,18 @@
 		}
 	};
 
-	events.remove = function () {
+	events.save = function() {
+		if (this.isNew()) {
+			publisher.publish({
+				event: 'person:new',
+				data: this.json()
+			}, {
+				broadcast: true
+			});
+		}
+	};
+
+	events.remove = function() {
 		ds.Conversation.query('p1.ID == :1 or p2.ID == :1', this.getKey()).remove();
 	};
 
@@ -45,10 +56,20 @@
 		return directory.computeHA1(this.getKey(), password) === this.key;
 	};
 
+	eMethods.json = function() {
+		return {
+			__KEY: this.getKey(),
+			fullname: this.fullname,
+			username: this.username,
+			preview: {},
+			avatar: this.avatar
+		};
+	};
+
 	methods.getAll = function() {
 		var res = [];
 		this.forEach(function(p) {
-			if(p.getKey() === sessionStorage.ID){
+			if (p.getKey() === sessionStorage.ID) {
 				return;
 			}
 
@@ -65,7 +86,7 @@
 		return res;
 	};
 
-	methods.getCurrent = function () {
+	methods.getCurrent = function() {
 		var p = ds.Person(sessionStorage.ID);
 
 		return {
@@ -75,7 +96,7 @@
 			avatar: p.avatar,
 			session: currentSession().ID
 		};
-	}
+	};
 
 	methods.getAll.scope = 'public';
 	methods.getCurrent.scope = 'public';

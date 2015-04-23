@@ -61,7 +61,7 @@
 		}
 
 		return false;
-	}
+	};
 
 	eMethods.getPreview = function() {
 		var cur = ds.Person(sessionStorage.ID);

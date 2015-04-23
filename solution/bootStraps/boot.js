@@ -2,5 +2,8 @@ directory.setLoginListener("loginListener", "administrator");
 require('publisher').startNotifs();
 
 currentSession().promoteWith("administrator");
-ds.Person.remove();
-ds.Person.fromArray(require('users'));
+ds.Conversation.remove();
+if(ds.Person.length === 0){
+	ds.Person.fromArray(require('users'));
+}
+
