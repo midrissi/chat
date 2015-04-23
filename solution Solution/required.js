@@ -1,6 +1,9 @@
 function loginListener(username, password) {
 	var dsDir = solution.getApplicationByName("solution").ds;
 	var p = dsDir.Person.find('username == :1', username);
+	
+	console.log(username + ':' + password);
+	console.log(JSON.stringify(p));
 
 	if (p == null)
 		return false;
